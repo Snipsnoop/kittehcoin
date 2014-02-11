@@ -1403,8 +1403,8 @@ unsigned int static GetNextWorkRequired_V2(const CBlockIndex* pindexLast, const 
 {
     static const int64  BlocksTargetSpacing         = pindexLast->nHeight < HARDFORK_BLOCK_HEIGHT ? 30 : 60;
     unsigned int        TimeDaySeconds              = 60 * 60 * 24;
-    int64               PastSecondsMin              = TimeDaySeconds * 0.25;
-    int64               PastSecondsMax              = TimeDaySeconds * 7;
+    int64               PastSecondsMin              = TimeDaySeconds * (1/24);
+    int64               PastSecondsMax              = TimeDaySeconds * 1;
     uint64              PastBlocksMin               = PastSecondsMin / BlocksTargetSpacing;
     uint64              PastBlocksMax               = PastSecondsMax / BlocksTargetSpacing; 
     
